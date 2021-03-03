@@ -18,9 +18,6 @@ crossover_rate = 0
 mutation_rate = 0
 
 
-def objective(candidate):
-    pass
-
 #tournament selection
 def selection(pop, scores, k = 3):
     selection_ix = randint(len(pop))
@@ -92,20 +89,3 @@ def genetic_algorithm(objective, n_bits, n_pop, n_iter, crossover_rate, mutation
 
     return [best, best_eval]
 
-###### implementing one max #########
-
-#objective function
-def onemax(x):
-    return -sum(x)
-
-n_iter = 100
-n_bits = 20
-n_pop = 100
-crossover_rate = 0.9
-mutation_rate = 1.0 / n_bits
-
-#genetic algorithm search
-best, score = genetic_algorithm(onemax, n_bits, n_pop, n_iter, crossover_rate, mutation_rate)
-
-print("Done!!")
-print("f(%s) = %f" % (best, score))
